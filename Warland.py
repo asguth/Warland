@@ -3,14 +3,14 @@ import time
 import os
 
 def clear():
-    os.system("clear")
+    os.system("cls")
 
 def playerstats():
-    print(f"\nStatus            Vida: {vid} Ataque: {ata} Cura: {cur}")
+    print(f"\nStatus            Vida❤️: {vid} Ataque⚔️: {ata} Cura✚: {cur}")
 
 
 def inistats():
-    print(f"Inimigo           Vida: {inivid} Ataque: {iniata}")
+    print(f"Inimigo           Vida❤️: {inivid} Ataque⚔️: {iniata}")
 
 def welcome():
     print("\n ?????   ???   ?????                    ?????                           ????")
@@ -23,9 +23,28 @@ def welcome():
     input("\n                           Press ENTER to Start")
     clear()
 
+def loading():
+    clear()
+    print("\nvez do inimigo ⌛")
+    time.sleep(0.3)
+    clear()
+    print("\nvez do inimigo ⏳")
+    time.sleep(0.3)    
+    clear()
+    print("\nvez do inimigo ⌛")
+    time.sleep(0.3)   
+    clear()
+    print("\nvez do inimigo ⏳")
+    time.sleep(0.3)    
+    clear()
+    print("\nvez do inimigo ⌛")
+    time.sleep(0.3)    
+    clear()
+
+
+clear()
 welcome()
 
-#Herois-------------------------------------------------------------------------
 print("\n1 - Cavaleiro")
 print("2 - Arqueiro")
 print("3 - Mago")
@@ -38,7 +57,7 @@ print("9 - Druida")
 print("10 - Monge")
 char = eval(input("\nEscolha sua classe: "))
 clear()
-
+    
 if char == 1:
     vid = 150
     ata = 15
@@ -97,15 +116,12 @@ elif char == 10:
 time.sleep(1)
 clear()
 
-#inimigo Aleatorio--------------------------------------------------------------
 print("\nVocê enfrentará um inimigo aleatório, prepare-se!")
 time.sleep(1)
 clear()
 
-#inimigo Aleatorio--------------------------------------------------------------
-ini = (random.randint(1, 3))
+ini = (random.randint(1, 10))
 
-#inimigos-----------------------------------------------------------------------
 if ini == 1:
     inivid = 80
     iniata = 5
@@ -151,35 +167,41 @@ elif ini == 10:
 time.sleep(1)
 clear()
 
-#Combate------------------------------------------------------------------------
 while (vid > 0 and inivid > 0):
     playerstats()
     inistats()
     print("\nSua Vez:")
-    print("1 - Atacar")
-    print("2 - Curar")
-    esc = eval(input("Escolha: "))
+    print("1 - Atacar ⚔️")
+    print("2 - Curar ✚")
+    esc = int(input("Escolha: "))
     clear()
     
+    critata = (random.randint(0, 10))
+    critcur = (random.randint(0, 5))
+    critiniata = (random.randint(0, 10))
+
     if esc == 1:
-        inivid -= ata
+        inivid -= ata + critata
         
     elif esc == 2:
-        vid += cur
-        
+        vid += cur + critcur
     
-    print("\nvez do inimigo")
-    time.sleep(1)
-    vid-= iniata
+    loading()
+    vid-= iniata + critiniata
     
     clear()
-    print(f"\nInimigo ataca com {iniata} de dano")
+    print(f"\nInimigo ataca com {iniata} de ataque {critiniata} de crítico")
     
+    if esc == 1:
+        print(f"Você ataca com {ata} de ataque {critata} de crítico")
+    else:
+        print(f"Você cura com {cur} e {critcur} de crítico")
+            
     if inivid <=0:
         clear()
         print("\nVocê Ganhou!")
-        time.sleep(1)
+        time.sleep(3)
     elif vid <=0:
         clear()
         print("\nVocê Perdeu!")
-        time.sleep(1)
+        time.sleep(3)
