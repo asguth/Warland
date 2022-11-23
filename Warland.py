@@ -178,7 +178,7 @@ while (vid > 0 and inivid > 0):
     
     critata = (random.randint(0, 10))
     critcur = (random.randint(0, 5))
-    critiniata = (random.randint(0, 10))
+    critiniata = (random.randint(0, 5))
 
     if esc == 1:
         inivid -= ata + critata
